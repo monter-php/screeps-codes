@@ -8,14 +8,12 @@ var roleHarvester = {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
-        else if(creep.carry.energy < creep.carryCapacity) {
-            creep.moveTo(Game.spawns.Spawn1, {visualizePathStyle: {stroke: '#ff0000'}});
-        }
         else {
+            
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_EXTENSION || structure.structureType == STRUCTURE_SPAWN) &&
-                            structure.energy < structure.energyCapacity;
+                            structure.energy <= structure.energyCapacity;
                     }
             });
             if(targets.length > 0) {

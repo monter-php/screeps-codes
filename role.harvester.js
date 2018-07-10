@@ -8,6 +8,9 @@ var roleHarvester = {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
+        else if(creep.carry.energy < creep.carryCapacity) {
+            creep.moveTo(Game.spawns.Spawn1, {visualizePathStyle: {stroke: '#ff0000'}});
+        }
         else {
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {

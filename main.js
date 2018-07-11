@@ -26,7 +26,7 @@ module.exports.loop = function () {
         }
     }
 
-    var targets = creep.room.find(FIND_STRUCTURES, {
+    var targets = Game.rooms[0].find(FIND_STRUCTURES, {
         filter: (structure) => {
             return structure.structureType == STRUCTURE_EXTENSION;
         }

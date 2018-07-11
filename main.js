@@ -28,11 +28,12 @@ module.exports.loop = function () {
 
     var targets = Game.spawns['Spawn1'].room.find(FIND_STRUCTURES, {
         filter: (structure) => {
-            return structure.structureType == STRUCTURE_EXTENSION;
+            return (structure.structureType == STRUCTURE_EXTENSION || structure.structureType == STRUCTURE_SPAWN) &&
+            structure.energy == structure.energyCapacity;
         }
     });
 
-    if(targets.length == 5) {
+    if(targets.length == 6) {
         creepTier = 1;
     }
 
